@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suhas | AI Kid Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-1: #081120;
+      --bg-2: #101b33;
+      --panel: rgba(17, 28, 48, 0.78);
+      --panel-strong: rgba(10, 20, 38, 0.92);
+      --text: #eaf2ff;
+      --muted: #9fb4d4;
+      --cyan: #3ee7ff;
+      --blue: #4d7cff;
+      --violet: #8b5cf6;
+      --green: #38e38f;
+      --yellow: #ffd84d;
+      --border: rgba(98, 170, 255, 0.22);
+      --shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+      --radius: 22px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(62, 231, 255, 0.12), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(139, 92, 246, 0.14), transparent 24%),
+        radial-gradient(circle at 50% 80%, rgba(77, 124, 255, 0.12), transparent 28%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: white;
+      opacity: 0.8;
+      animation: twinkle 4s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.6); }
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(7, 16, 31, 0.7);
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      margin: 14px auto 0;
+      border-radius: 18px;
+      width: min(1180px, calc(100% - 32px));
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-title {
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--cyan);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .nav-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .nav-menu a:hover {
+      color: #081120;
+      background: linear-gradient(135deg, var(--cyan), #b3f7ff);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(62, 231, 255, 0.28);
+    }
+
+    .hero {
+      padding: 48px 0 26px;
+    }
+
+    .hero-card {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 26px;
+      align-items: center;
+      padding: 32px;
+      border-radius: 30px;
+      background:
+        linear-gradient(145deg, rgba(17,28,48,0.85), rgba(9,19,36,0.9));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: -120px;
+      top: -120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(62, 231, 255, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-text {
+      min-width: 0;
+    }
+
+    .player-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(62, 231, 255, 0.08);
+      color: var(--cyan);
+      border: 1px solid rgba(62, 231, 255, 0.2);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.05;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--cyan), #ffffff, var(--yellow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.04rem;
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 0.96rem;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      color: #07111f;
+      background: linear-gradient(135deg, var(--cyan), #b6faff);
+      box-shadow: 0 14px 26px rgba(62, 231, 255, 0.24);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      border-color: rgba(62, 231, 255, 0.35);
+      color: var(--cyan);
+    }
+
+    .power-bar-wrap {
+      margin-top: 10px;
+      max-width: 460px;
+    }
+
+    .power-bar-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .power-bar {
+      height: 14px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .power-fill {
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--cyan), var(--yellow));
+      box-shadow: 0 0 22px rgba(62, 231, 255, 0.25);
+      transition: width 1.2s ease;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .avatar-shell {
+      width: 300px;
+      max-width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 28px;
+      position: relative;
+      background:
+        linear-gradient(145deg, rgba(62, 231, 255, 0.16), rgba(139, 92, 246, 0.12));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 22px 40px rgba(0,0,0,0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      animation: floatCard 4.8s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .avatar-ring {
+      position: absolute;
+      inset: 12px;
+      border: 2px dashed rgba(62, 231, 255, 0.35);
+      border-radius: 24px;
+      animation: spin 14s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .avatar-core {
+      width: 72%;
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      background: rgba(4, 11, 22, 0.78);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+
+    .avatar-core img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .avatar-fallback {
+      font-family: "Orbitron", sans-serif;
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+
+    .floating-chip {
+      position: absolute;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: rgba(7, 16, 31, 0.88);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+      color: var(--text);
+      animation: floatChip 3.8s ease-in-out infinite;
+      z-index: 3;
+    }
+
+    .chip-1 { top: 8%; left: -2%; color: var(--cyan); }
+    .chip-2 { top: 18%; right: -3%; color: var(--green); animation-delay: 0.8s; }
+    .chip-3 { bottom: 10%; left: 2%; color: var(--yellow); animation-delay: 1.4s; }
+    .chip-4 { bottom: 6%; right: -1%; color: #d5c0ff; animation-delay: 2s; }
+
+    @keyframes floatChip {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .section {
+      padding: 18px 0 6px;
+    }
+
+    .section-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      color: var(--cyan);
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      min-width: 0;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .panel:hover {
+      transform: translateY(-5px);
+      border-color: rgba(62, 231, 255, 0.35);
+      box-shadow: 0 24px 40px rgba(0,0,0,0.3);
+    }
+
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+
+    .mini-title {
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .stat-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(18, 31, 56, 0.96), rgba(10, 18, 34, 0.96));
+      border: 1px solid rgba(62, 231, 255, 0.12);
+      border-radius: 18px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+
+    .stat-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -30px -30px auto;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(62,231,255,0.12), transparent 65%);
+    }
+
+    .stat-value {
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--cyan);
+      margin-bottom: 6px;
+    }
+
+    .stat-name {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      line-height: 1.35;
+    }
+
+    .xp-list,
+    .skills-list,
+    .mission-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .xp-list li,
+    .skills-list li,
+    .mission-list li {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 14px 14px 14px 16px;
+      color: var(--text);
+      position: relative;
+    }
+
+    .xp-list li::before,
+    .skills-list li::before,
+    .mission-list li::before {
+      content: "➜";
+      color: var(--cyan);
+      margin-right: 10px;
+      font-weight: 800;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .badge.cyan { color: var(--cyan); }
+    .badge.green { color: var(--green); }
+    .badge.yellow { color: var(--yellow); }
+    .badge.violet { color: #d7c5ff; }
+
+    .skill-meter {
+      display: grid;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .meter-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+
+    .meter-track {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .meter-fill {
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      transition: width 1.2s ease;
+    }
+
+    .quest-box {
+      background: linear-gradient(135deg, rgba(77,124,255,0.12), rgba(62,231,255,0.08));
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid rgba(77, 124, 255, 0.2);
+      margin-top: 14px;
+    }
+
+    .quest-title {
+      font-family: "Orbitron", sans-serif;
+      color: var(--yellow);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .project-card {
+      border-radius: 18px;
+      padding: 18px;
+      background: linear-gradient(160deg, rgba(15, 26, 44, 0.95), rgba(8, 16, 30, 0.95));
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(62,231,255,0.35);
+    }
+
+    .project-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .project-card h4 {
+      font-size: 1.04rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .achievement-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .achievement {
+      text-align: center;
+      padding: 18px 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .achievement .emoji {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .achievement strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .achievement span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .footer {
+      margin: 28px 0 36px;
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .glow-orb {
+      position: fixed;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(62,231,255,0.12), transparent 70%);
+      filter: blur(12px);
+      pointer-events: none;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      transition: top 0.15s linear, left 0.15s linear;
+    }
+
+    @media (max-width: 980px) {
+      .hero-card {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid,
+      .achievement-grid,
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .span-4,
+      .span-6,
+      .span-8 {
+        grid-column: span 12;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .navbar {
+        width: calc(100% - 20px);
+        margin-top: 10px;
+      }
+
+      .nav-inner {
+        padding: 12px;
+      }
+
+      .nav-menu {
+        gap: 8px;
+      }
+
+      .nav-menu a {
+        font-size: 0.88rem;
+        padding: 9px 12px;
+      }
+
+      .container {
+        width: calc(100% - 20px);
+      }
+
+      .hero {
+        padding-top: 22px;
+      }
+
+      .hero-card {
+        padding: 20px;
+        border-radius: 22px;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.7rem, 9vw, 2.5rem);
+      }
+
+      .hero p {
+        font-size: 0.96rem;
+      }
+
+      .stats-grid,
+      .projects-grid,
+      .achievement-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 18px;
+      }
+
+      .avatar-shell {
+        width: 250px;
+      }
+
+      .floating-chip {
+        font-size: 0.75rem;
+        padding: 8px 10px;
+      }
+
+      .chip-1 { top: 4%; left: 2%; }
+      .chip-2 { top: 14%; right: 2%; }
+      .chip-3 { bottom: 10%; left: 3%; }
+      .chip-4 { bottom: 4%; right: 2%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+  <div class="glow-orb" id="glowOrb"></div>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="brand-title">A.N.S.V.Suhas Zone</span>
+        <span class="brand-subtitle">AI Kid • Gamer • Future Innovator</span>
+      </div>
+      <div class="nav-menu">
+        <a href="#home">Home</a>
+        <a href="#profile">Profile</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#missions">Missions</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero fade-up" id="home">
+      <div class="hero-card">
+        <div class="hero-text">
+          <div class="player-badge">🎮 Player Profile Unlocked</div>
+          <h1><span class="gradient-text">Suhas</span> AI Kid Portfolio</h1>
+          <p>
+            Welcome to Suhas's digital world — a young explorer who loves games, technology,
+            creativity, problem solving, and exciting AI-powered ideas. This page is designed
+            like a futuristic game dashboard with interactive elements and a smart-kid vibe.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#missions" class="btn btn-secondary">Future Missions</a>
+          </div>
+
+          <div class="power-bar-wrap">
+            <div class="power-bar-label">
+              <span>Learning Power</span>
+              <span id="powerText">0%</span>
+            </div>
+            <div class="power-bar">
+              <div class="power-fill" id="powerFill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="avatar-shell">
+            <div class="avatar-ring"></div>
+            <div class="avatar-core">
+              <!-- Replace suhas.jpg with your image file -->
+              <img src="suhas.jpg" alt="Suhas" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="avatar-fallback" style="display:none;">S</div>
+            </div>
+
+            <div class="floating-chip chip-1">🤖 AI Explorer</div>
+            <div class="floating-chip chip-2">🎯 Goal Hunter</div>
+            <div class="floating-chip chip-3">🧠 Smart Learner</div>
+            <div class="floating-chip chip-4">🚀 Future Builder</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-up" id="profile">
+      <h2 class="section-title">⚡ Player Stats</h2>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" data-target="8">0</div>
+          <div class="stat-name">Current Grade</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-target="12">0</div>
+          <div class="stat-name">Projects & Activities</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-target="5">0</div>
+          <div class="stat-name">Core Interests</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-target="100">0</div>
+          <div class="stat-name">Dream Level</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <div class="panel-grid">
+        <div class="panel span-6">
+          <div class="mini-title">🧬 About Suhas</div>
+          <p class="muted">
+            Suhas is a curious and energetic student who loves exploring the exciting world of
+            games, science, technology, and creativity. He enjoys learning how things work,
+            thinking of new ideas, and building a strong future with innovation and imagination.
+          </p>
+
+          <div class="badge-row">
+            <span class="badge cyan">AI Curiosity</span>
+            <span class="badge green">Creative Thinking</span>
+            <span class="badge yellow">Problem Solving</span>
+            <span class="badge violet">Game Enthusiasm</span>
+          </div>
+
+          <div class="quest-box">
+            <div class="quest-title">Current Quest</div>
+            <p class="muted">
+              Learn technology step by step, build cool projects, improve creative thinking,
+              and become a confident future innovator.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel span-6" id="skills">
+          <div class="mini-title">🛠 Skill Levels</div>
+
+          <div class="skill-meter">
+            <div>
+              <div class="meter-label">
+                <span>Creative Thinking</span>
+                <span>92%</span>
+              </div>
+              <div class="meter-track"><div class="meter-fill" data-width="92%"></div></div>
+            </div>
+
+            <div>
+              <div class="meter-label">
+                <span>Technology Interest</span>
+                <span>88%</span>
+              </div>
+              <div class="meter-track"><div class="meter-fill" data-width="88%"></div></div>
+            </div>
+
+            <div>
+              <div class="meter-label">
+                <span>Problem Solving</span>
+                <span>84%</span>
+              </div>
+              <div class="meter-track"><div class="meter-fill" data-width="84%"></div></div>
+            </div>
+
+            <div>
+              <div class="meter-label">
+                <span>Communication</span>
+                <span>80%</span>
+              </div>
+              <div class="meter-track"><div class="meter-fill" data-width="80%"></div></div>
+            </div>
+
+            <div>
+              <div class="meter-label">
+                <span>Future AI Learning</span>
+                <span>95%</span>
+              </div>
+              <div class="meter-track"><div class="meter-fill" data-width="95%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel span-4">
+          <div class="mini-title">🎯 Interests</div>
+          <ul class="xp-list">
+            <li>Artificial Intelligence & Smart Tools</li>
+            <li>Games and Game Design</li>
+            <li>Science and Innovation</li>
+            <li>Creative Projects and Exploration</li>
+            <li>Technology for the Future</li>
+          </ul>
+        </div>
+
+        <div class="panel span-8" id="projects">
+          <div class="mini-title">🚀 Project Arena</div>
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-icon">🎮</div>
+              <h4>Mini Game Ideas</h4>
+              <p>Create simple fun game concepts with levels, scores, and exciting missions.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-icon">🤖</div>
+              <h4>AI Explorer</h4>
+              <p>Learn how AI can answer questions, create content, and support daily learning.</p>
+            </div>
+
+            <div class="project-card">
+              <div class="project-icon">🧪</div>
+              <h4>Science Missions</h4>
+              <p>Try creative experiments, observations, and small innovation challenges.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel span-12">
+          <div class="mini-title">🏆 Achievement Badges</div>
+          <div class="achievement-grid">
+            <div class="achievement">
+              <div class="emoji">💡</div>
+              <strong>Idea Maker</strong>
+              <span>Always thinking creatively</span>
+            </div>
+            <div class="achievement">
+              <div class="emoji">📘</div>
+              <strong>Fast Learner</strong>
+              <span>Loves learning new things</span>
+            </div>
+            <div class="achievement">
+              <div class="emoji">🎮</div>
+              <strong>Game Lover</strong>
+              <span>Enjoys immersive digital worlds</span>
+            </div>
+            <div class="achievement">
+              <div class="emoji">🚀</div>
+              <strong>Future Builder</strong>
+              <span>Dreams big for tomorrow</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel span-6" id="missions">
+          <div class="mini-title">🗺 Future Missions</div>
+          <ul class="mission-list">
+            <li>Build simple games and interactive web pages</li>
+            <li>Learn coding basics in a fun and practical way</li>
+            <li>Explore how AI works in real life</li>
+            <li>Create smart projects with creativity and confidence</li>
+            <li>Grow into an engineer, innovator, or entrepreneur</li>
+          </ul>
+        </div>
+
+        <div class="panel span-6">
+          <div class="mini-title">📡 Learning Loadout</div>
+          <ul class="skills-list">
+            <li>HTML and creative web page building</li>
+            <li>Basic logic and structured thinking</li>
+            <li>Presentation and expression skills</li>
+            <li>Imagination-driven project ideas</li>
+            <li>Technology curiosity with fun learning</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer fade-up">
+      © 2026 Suhas • AI Kid Portfolio • Designed with a futuristic game theme
+    </footer>
+  </main>
+
+  <script>
+    // Background stars
+    const starsContainer = document.getElementById("stars");
+    for (let i = 0; i < 45; i++) {
+      const star = document.createElement("span");
+      star.className = "star";
+      star.style.top = Math.random() * 100 + "%";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.animationDelay = (Math.random() * 4) + "s";
+      star.style.opacity = (0.25 + Math.random() * 0.75).toFixed(2);
+      starsContainer.appendChild(star);
+    }
+
+    // Mouse glow orb
+    const glowOrb = document.getElementById("glowOrb");
+    document.addEventListener("mousemove", (e) => {
+      glowOrb.style.left = e.clientX + "px";
+      glowOrb.style.top = e.clientY + "px";
+    });
+
+    // Fade up on scroll
+    const fadeItems = document.querySelectorAll(".fade-up");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    fadeItems.forEach(item => observer.observe(item));
+
+    // Animated stat counters
+    const statValues = document.querySelectorAll(".stat-value[data-target]");
+    const animateValue = (el, target) => {
+      let start = 0;
+      const duration = 1200;
+      const startTime = performance.now();
+
+      function update(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const current = Math.round(start + (target - start) * progress);
+        el.textContent = current;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (!el.dataset.done) {
+            animateValue(el, Number(el.dataset.target));
+            el.dataset.done = "true";
+          }
+          statsObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    statValues.forEach(el => statsObserver.observe(el));
+
+    // Animate skill bars
+    const bars = document.querySelectorAll(".meter-fill");
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bar = entry.target;
+          bar.style.width = bar.dataset.width || "0%";
+          barObserver.unobserve(bar);
+        }
+      });
+    }, { threshold: 0.35 });
+
+    bars.forEach(bar => barObserver.observe(bar));
+
+    // Hero power bar
+    const powerFill = document.getElementById("powerFill");
+    const powerText = document.getElementById("powerText");
+
+    function animatePower(target) {
+      let start = 0;
+      const duration = 1400;
+      const startTime = performance.now();
+
+      function step(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = Math.round(start + (target - start) * progress);
+        powerFill.style.width = value + "%";
+        powerText.textContent = value + "%";
+        if (progress < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    window.addEventListener("load", () => {
+      animatePower(96);
+    });
+  </script>
+</body>
+</html>
