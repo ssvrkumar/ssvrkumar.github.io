@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prof. Ssvr Kumar Addagarla, PhD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <meta name="description" content="Dr. SSVR Kumar Addagarla — Professor, Researcher, and Academic Administrator in Artificial Intelligence, Machine Learning, Recommender Systems, and Computer Vision." />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy-deep: #1f3a5f;
+      --navy-soft: #2f5d8a;
+      --gold-muted: #b8915f;
+      --gold-soft: #e9dccf;
+      --ivory-bg: #fcfbf8;
+      --paper: #ffffff;
+      --text-rich: #1f2c38;
+      --text-soft: #4d5d6d;
+      --border-soft: #e8dfd5;
+      --shadow-soft: 0 15px 30px -10px rgba(31, 58, 95, 0.08);
+      --radius-card: 20px;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: var(--ivory-bg);
+      color: var(--text-rich);
+      font-size: 16px;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    html {
+      scroll-padding-top: 85px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(252, 251, 248, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+      padding: 0.7rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      z-index: 99;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .nav-brand {
+      font-family: "Lora", serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      font-weight: 600;
+      color: var(--navy-deep);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-brand small {
+      font-size: clamp(0.82rem, 1.6vw, 0.95rem);
+      font-weight: 400;
+      color: var(--gold-muted);
+      display: block;
+      line-height: 1.3;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--text-soft);
+      font-weight: 500;
+      font-size: clamp(0.92rem, 1.5vw, 0.95rem);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.58rem 1rem;
+      border-radius: 50px;
+      transition: all 0.22s ease;
+      border: 1px solid transparent;
+    }
+
+    .nav-menu a i {
+      color: var(--gold-muted);
+    }
+
+    .nav-menu a:hover {
+      background: var(--navy-deep);
+      border-color: var(--navy-deep);
+      color: #ffffff;
+    }
+
+    .nav-menu a:hover i {
+      color: #ffffff;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-soft);
+      font-size: 1.7rem;
+      padding: 0.1rem 0.9rem;
+      border-radius: 40px;
+      color: var(--navy-deep);
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2.2rem;
+    }
+
+    section {
+      margin: 5rem 0;
+    }
+
+    .section-title {
+      font-family: "Lora", serif;
+      font-size: clamp(1.65rem, 3.2vw, 2.3rem);
+      font-weight: 600;
+      color: var(--navy-deep);
+      border-bottom: 3px solid var(--gold-muted);
+      padding-bottom: 0.6rem;
+      margin-bottom: 2.5rem;
+      display: inline-block;
+    }
+
+    .grid-2, .grid-3, .grid-4 {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2,1fr); }
+    .grid-3 { grid-template-columns: repeat(3,1fr); }
+    .grid-4 { grid-template-columns: repeat(4,1fr); }
+
+    .card {
+      background: var(--paper);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.25s ease;
+      border: 1px solid rgba(184, 145, 95, 0.15);
+    }
+
+    .card--about {
+      padding: 2.8rem;
+      text-align: justify;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 40px -14px rgba(31, 58, 95, 0.18);
+      border-color: var(--gold-muted);
+    }
+
+    .card h3 {
+      font-family: "Lora", serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+      font-weight: 600;
+      color: var(--navy-deep);
+      margin-bottom: 1.2rem;
+      border-left: 5px solid var(--gold-muted);
+      padding-left: 1rem;
+    }
+
+    .lead {
+      font-size: 1.15rem;
+    }
+
+    .list-academic {
+      list-style: none;
+    }
+
+    .list-academic li {
+      margin-bottom: 0.7rem;
+      padding-left: 1.8rem;
+      position: relative;
+      font-size: 1rem;
+    }
+
+    .list-academic li::before {
+      content: "➤";
+      color: var(--gold-muted);
+      position: absolute;
+      left: 0;
+      font-size: 0.9rem;
+    }
+
+    .badge {
+      background: rgba(184, 145, 95, 0.12);
+      color: var(--navy-deep);
+      padding: 0.25rem 1.2rem;
+      border-radius: 40px;
+      font-size: clamp(0.85rem, 1.6vw, 0.9rem);
+      font-weight: 500;
+      display: inline-block;
+      margin-right: 0.5rem;
+      margin-bottom: 0.6rem;
+      border: 1px solid rgba(184, 145, 95, 0.2);
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--navy-deep);
+      color: white;
+      padding: 0.7rem 2.2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      border: 1px solid transparent;
+      transition: 0.2s;
+      margin-right: 0.8rem;
+      margin-bottom: 0.8rem;
+      box-shadow: 0 8px 16px -8px rgba(31,58,95,0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--navy-deep);
+      color: var(--navy-deep);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: var(--navy-deep);
+      color: white;
+      transform: scale(1.02);
+    }
+
+    .btn:hover {
+      background: #152d4a;
+      transform: translateY(-3px);
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      background: linear-gradient(135deg, #f8f3ec, #ffffff);
+      border-radius: 40px;
+      padding: 3rem 3.5rem;
+      margin-top: 0.9rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-content {
+      flex: 2;
+    }
+
+    .hero-avatar {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .avatar-circle {
+      width: 210px;
+      height: 210px;
+      background: var(--navy-deep);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 5rem;
+      font-weight: 500;
+      font-family: "Lora", serif;
+      box-shadow: 0 25px 35px -10px rgba(31,58,95,0.25);
+      border: 6px solid var(--gold-muted);
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-family: "Lora", serif;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      font-weight: 700;
+      color: var(--navy-deep);
+      line-height: 1.1;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+      font-weight: 500;
+      color: var(--gold-muted);
+      margin: 0.5rem 0 0.5rem;
+    }
+
+    .hero-institution {
+      font-size: clamp(1rem, 2vw, 1.14rem);
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+    }
+
+    .hero-tags {
+      margin: 1.8rem 0 2.2rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .stat-item {
+      background: var(--paper);
+      border-radius: 40px;
+      padding: 0.8rem 2rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.02);
+      border: 1px solid var(--border-soft);
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      min-width: 0;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+      font-weight: 700;
+      color: var(--navy-deep);
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .stat-label {
+      display: block;
+      max-width: 100%;
+      font-weight: 900;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      line-height: 1.2;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      font-size: 0.82rem;
+    }
+
+    .publication-item {
+      border-bottom: 1px solid var(--border-soft);
+      padding: 1rem 0;
+    }
+
+    .publication-item:last-child {
+      border: none;
+    }
+
+    .pub-authors {
+      font-weight: 600;
+      color: var(--navy-deep);
+    }
+
+    .pub-venue {
+      font-size: 0.9rem;
+      color: var(--gold-muted);
+      font-style: italic;
+    }
+
+    .contact-grid > .card:only-child {
+      grid-column: 1 / -1;
+    }
+
+    footer {
+      background: var(--navy-deep);
+      color: #efe5d8;
+      padding: 2.5rem 2rem;
+      border-radius: 40px 40px 0 0;
+      margin-top: 5rem;
+    }
+
+    .footer-links a {
+      color: #f4ebdf;
+      text-decoration: none;
+      margin: 0 1rem 0.5rem 0;
+      font-weight: 400;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    @media (max-width: 1024px) {
+      .container { padding: 0 1.6rem; }
+      section { margin: 4rem 0; }
+      .card { padding: 1.75rem; }
+      .card--about { padding: 2.2rem; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #home { margin-bottom: 1.4rem; }
+      #about { margin-top: 1.4rem; }
+    }
+
+    @media (max-width: 900px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .hero { flex-direction: column-reverse; text-align: center; padding: 2rem 1.5rem; }
+      .avatar-circle { width: 160px; height: 160px; font-size: 3.6rem; }
+      .navbar { padding: 0.8rem 1.5rem; }
+      .nav-menu { display: none; width: 100%; flex-direction: column; align-items: flex-start; padding: 1rem 0; }
+      .nav-menu.show { display: flex; }
+      .nav-menu a { width: 100%; }
+      .nav-toggle { display: block; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      section { margin: 3.2rem 0; }
+      .card { padding: 1.5rem; }
+      .card--about { padding: 1.8rem; }
+      #home { margin-bottom: 1.2rem; }
+      #about { margin-top: 1.2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 1.2rem; }
+      .btn { display: block; width: 100%; margin-right: 0; }
+      section { margin: 2.6rem 0; }
+      .card { padding: 1.25rem; }
+      .card--about { padding: 1.35rem; }
+      .lead { font-size: 1.05rem; }
+      .badge { padding: 0.22rem 0.95rem; }
+      .hero { margin-top: 0.6rem; }
+      #home { margin-bottom: 1rem; }
+      #about { margin-top: 1rem; }
+      .hero-content { font-size: 0.95rem; }
+      .hero h1 { font-size: clamp(1.45rem, 6vw, 1.95rem); }
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+      }
+      .stat-item {
+        padding: 0.75rem 1.1rem;
+        min-height: 96px;
+        height: 100%;
+        font-size: 0.6rem;
+      }
+      .stat-label {
+        height: 2.4em;
+        overflow: hidden;
+      }
+      .hero-tags {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.6rem;
+        justify-items: center;
+      }
+      .hero-tags .badge {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    #home { margin-bottom: 1.6rem; }
+    #about { margin-top: 1.6rem; }
+
+    .fade-section {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s cubic-bezier(0.15,0.85,0.35,1), transform 0.7s cubic-bezier(0.15,0.85,0.35,1);
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+	
+	.profile-links {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 25px;
+  background: #f3f7fd;
+  border: 1px solid #d6e0ee;
+  text-decoration: none;
+  color: #1f3a5f;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+/* 🔥 Hover effect */
+.profile-link:hover {
+  background: #1f3a5f;
+  color: #ffffff !important;
+  border-color: #1f3a5f;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(31, 58, 95, 0.2);
+}
+
+/* icon color change on hover */
+.profile-link:hover i {
+  color: #ffffff;
+}
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">
+     <h5> Dr. Ssvr Kumar Addagarla</h5> <small>Professor | NSRIT</small>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+    <div class="nav-menu" id="navMenu">
+      <a href="#home"><i class="fas fa-home" aria-hidden="true"></i>Home</a>
+      <a href="#about"><i class="fas fa-user" aria-hidden="true"></i>About</a>
+      <a href="#research"><i class="fas fa-flask" aria-hidden="true"></i>Research</a>
+      <a href="#teaching"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>Teaching</a>
+      <a href="#leadership"><i class="fas fa-users" aria-hidden="true"></i>Leadership</a>
+      <a href="#contact"><i class="fas fa-envelope" aria-hidden="true"></i>Contact</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section id="home" class="hero fade-section">
+      <div class="hero-content">
+        <h1>Dr. Ssvr Kumar Addagarla</h1>
+        <h3>Professor, Computer Science & Engineering (AI&ML)</h3>
+        <div class="hero-institution">Nadimpalli Satyanarayana Raju Institute of Technology(Autonomous), Visakhapatnam, India</div>
+
+        <div class="stats">
+          <div class="stat-item"><span class="stat-number" data-target="17" data-suffix="+">0</span> <span class="stat-label">Years of Teaching</span></div>
+          <div class="stat-item"><span class="stat-number" data-target="10" data-suffix="+">0</span> <span class="stat-label">Years of Administrative Experience</span></div>
+          <div class="stat-item"><span class="stat-number" data-target="15" data-suffix="+">0</span> <span class="stat-label">Research Constributions</span></div>
+          <div class="stat-item"><span class="stat-number" data-target="01" data-suffix="">0</span> <span class="stat-label">PhD Guidance</span></div>
+        </div>
+      </div>
+
+      <div class="hero-avatar">
+        <div class="avatar-circle">
+                   
+          <img src="ssvrk.jpg" alt="Dr. SSVR Kumar Addagarla" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
+          
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="fade-section">
+      <h2 class="section-title">About</h2>
+      <div class="card card--about">
+        <p class="lead" style="margin-bottom: 1.8rem;">
+          <strong>Dr. S S V R Kumar Addagarla</strong> is a Professor in the Department of Computer Science & Engineering
+          (Artificial Intelligence & Machine Learning) at NSRIT(A), Visakhapatnam. He is an academician, researcher,
+          mentor, and academic administrator with extensive experience in teaching, departmental leadership,
+          accreditation activities, and institution-building.
+        </p>
+
+        <p style="margin-bottom: 1.8rem;">
+          He completed his PhD in 2021 from the School of Computer Science and Engineering, <strong>Vellore Institute of Technology (VIT),Vellore,</strong> Under the esteemed guidane of <strong> Dr. Anthoniraj Amalanathan
+		  , Director of CTS</strong> with the research
+          title <strong>“E-commerce Product Classification and Similar Visual Recommender Systems.”</strong>
+          His research work spans <strong>artificial intelligence, machine learning, recommender systems,
+          computer vision, multimodal learning, and explainable AI</strong>. He is also actively involved in
+          research proposal development, outreach initiatives, innovation ecosystems, and academic quality processes
+          such as NBA, NAAC, and institutional academic planning.
+        </p>
+
+        <p>
+          His ongoing scholarly interests include multimodal recommendation systems, privacy-aware vision AI,
+          smart campus analytics, vision transformers, and large language model–enabled explainable systems.
+          Alongside research, he has contributed to academic leadership roles, faculty coordination, student
+          mentoring, event organization, and industry-academia engagement.
+        </p>
+
+        <div class="hero-tags">
+          <span class="badge">Artificial Intelligence</span>
+          <span class="badge">Machine Learning</span>
+          <span class="badge">Computer Vision</span>
+          <span class="badge">Recommender Systems</span>
+          <span class="badge">Multimodal AI</span>
+          <span class="badge">Explainable AI</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="fade-section">
+      <h2 class="section-title">Research</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3><i class="fas fa-flask" style="color: var(--gold-muted); margin-right: 10px;"></i> Research Areas</h3>
+          <ul class="list-academic">
+            <li>Multimodal Product Recommendation Systems</li>
+            <li>Computer Vision and Smart Campus Analytics</li>
+            <li>Explainable AI and Responsible Machine Learning</li>
+            <li>Deep Learning for E-commerce and Visual Search</li>
+            <li>Large Language Models and Vision Transformers</li>
+			<li><strong>Emerging Themes:</strong> Green AI, sustainability-aware recommendation, explainability, and multimodal learning</li>
+
+          
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-graduation-cap"></i> Research Highlights</h3>
+          <ul class="list-academic">
+		   <li><strong>Currently Pursuing Postdoctoral Research:</strong> Lincoln University College, Malaysia (Enrolled in Sept,2025)</li>
+           <li><strong>Postdoctoral Direction:</strong> Fine-Grained Multimodal Product Clustering and Explainable Recommendation using LLMs and Vision Transformers</li>
+          <li> <i class="fas fa-user-graduate"></i> <strong>PhD Guidance:</strong> Co-Supervisor for Mr. G. Kalyan Chakravarthy, a PhD Scholar at GIET University, Gunupur (enrolled in 2022)with research focused on Visual Complementary Product Recommendation Systems.</li>
+		 <li><strong>Current Proposal Focus:</strong> Context-aware and privacy-preserving Vision AI for student monitoring and smart campus intelligence</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-quote-right"></i> Selected Publications / Works</h3>
+          <div class="publication-item">
+            Research on <span class="pub-authors">visual recommender systems and e-commerce product classification</span><br>
+            <span class="pub-venue">PhD Research Contributions</span>
+          </div>
+          <div class="publication-item">
+            Multimodal recommendation, clustering, and explainable AI based studies<br>
+            <span class="pub-venue">Ongoing Research Direction</span>
+          </div>
+          <div class="publication-item">
+            Vision-based smart campus analytics and privacy-preserving AI frameworks<br>
+            <span class="pub-venue">Proposal / Applied Research Track</span>
+          </div>
+          <div class="publication-item">
+            AI, ML, recommender systems publications<br>
+            <span class="pub-venue">Journal / Conference Publications</span>
+          </div>
+
+          <div style="margin-top:1.5rem;">
+            <a href="https://scholar.google.com/citations?user=0YYV1RgAAAAJ&hl=en&oi=ao" target="_blank" class="btn-outline btn" style="padding:0.5rem 1.5rem;">
+              <i class="fas fa-google"></i> Google Scholar
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching" class="fade-section">
+      <h2 class="section-title">Teaching</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3><i class="fas fa-chalkboard-teacher"></i> Experience</h3>
+          <ul class="list-academic">
+            <li>17+ years of teaching in Computer Science and Engineering</li>
+            <li>Handled undergraduate and postgraduate courses in AI, ML, Data Science, and Computer Vision</li>
+            <li>Mentored student projects in recommender systems, deep learning, and applied analytics</li>
+            <li>Conducted workshops, training sessions, and technical mentoring programs</li>
+            <li>Contributed to curriculum planning, academic quality processes, and outcome-based education practices</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-book-open"></i> Courses Handled</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.3rem;">
+            <span class="badge">Cryptography & Network Secuirty</span>
+            <span class="badge">Machine Learning</span>
+            <span class="badge">Python Programming</span>
+            <span class="badge">Software Engineering</span>
+            <span class="badge">Computer Vision</span>
+            <span class="badge">Big Data</span>
+            <span class="badge">DMDW</span>
+            <span class="badge">Web Technologies</span>
+            <span class="badge">Information Retrieval Systems</span>
+            <span class="badge">Database Systems</span>
+            <span class="badge">Emerging Technologies</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="leadership" class="fade-section">
+      <h2 class="section-title">Leadership & Administration</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3><i class="fas fa-building"></i> Departmental Leadership</h3>
+          <ul class="list-academic">
+            <li>Former HoD – CSE & CSE (AI & ML),NSRIT</li>
+            <li>Former - BOS Chairman for CSE(AI& ML),NSRIT</li>
+            <li>Academic planning, faculty coordination, and departmental development</li>
+            <li>Guidance for student events, technical activities, and academic initiatives</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-users-cog"></i> Institutional Contributions</h3>
+          <ul class="list-academic">
+            <li>Contributor to NBA, NAAC, IQAC, and quality assurance processes</li>
+			<li>Former Head-Institute IT infrastructure, GVP,Rushikonda</li>
+			<li>Former Webmaster & MIS Coordinator, NSRIT</li>
+            <li>Research proposal development and innovation promotion</li>
+            <li>Documentation, accreditation support, and policy-aligned academic processes</li>
+            <li>Support for outreach, centers of excellence, and industry-academia engagement</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-users"></i> Academic Initiatives</h3>
+          <ul class="list-academic">
+            <li>Centre for Artificial Intelligence & Innovation</li>
+            <li>Student Holistic Improvement & Nurturing Excellence (SHINE)</li>
+            <li>Research and development ecosystem building</li>
+            <li>Technical event organization and institutional branding initiatives</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="fade-section">
+      <h2 class="section-title">Contact</h2>
+      <div class="grid-2 contact-grid">
+        <div class="card" style="background: #faf6f0;">
+          <div style="margin-bottom: 1.5rem;">
+
+  <div style="margin-bottom: 1.5rem;">
+  <strong>Profiles:</strong>
+  <div class="profile-links">
+
+    <a href="https://www.scopus.com/authid/detail.uri?authorId=57211203307" target="_blank" class="profile-link">
+      <i class="fas fa-database"></i> Scopus
+    </a>
+
+    <a href="https://orcid.org/0000-0001-9723-6578" target="_blank" class="profile-link">
+      <i class="fab fa-orcid"></i> ORCID
+    </a>
+
+    <a href="https://www.linkedin.com/in/ssvrkumar" target="_blank" class="profile-link">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+
+  </div>
+</div>
+
+</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <div>© 2026 Dr. Ssvr Kumar Addagarla. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#research">Research</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('show');
+      toggle.setAttribute('aria-expanded', menu.classList.contains('show') ? 'true' : 'false');
+    });
+
+    const animateCounters = (root = document) => {
+      root.querySelectorAll('.stat-number[data-target]').forEach((el) => {
+        if (el.dataset.animated === 'true') return;
+
+        const target = Number(el.dataset.target);
+        if (!Number.isFinite(target)) return;
+
+        el.dataset.animated = 'true';
+
+        const suffix = el.dataset.suffix || '';
+        const start = 0;
+        const durationMs = 1100;
+        const startTime = performance.now();
+
+        const tick = (now) => {
+          const t = Math.min(1, (now - startTime) / durationMs);
+          const value = Math.round(start + (target - start) * t);
+          el.textContent = `${value}${suffix}`;
+          if (t < 1) requestAnimationFrame(tick);
+        };
+
+        el.textContent = `${start}${suffix}`;
+        requestAnimationFrame(tick);
+      });
+    };
+
+    const faders = document.querySelectorAll('.fade-section');
+    const appearOptions = { threshold: 0.15, rootMargin: '0px 0px -30px 0px' };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          animateCounters(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (menu.classList.contains('show')) menu.classList.remove('show');
+      });
+    });
+
+    window.addEventListener('load', () => {
+      faders.forEach(f => {
+        if (f.getBoundingClientRect().top < window.innerHeight * 0.8) {
+          f.classList.add('visible');
+          animateCounters(f);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
